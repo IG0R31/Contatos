@@ -1,6 +1,6 @@
-package Service;
+package uel.br.Contact.Service;
 
-import Model.ContactModel;
+import uel.br.Contact.Model.ContactModel;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,20 +14,22 @@ public class ContactService {
         return contatos;
     }
 
-    public Contact buscar(int index){
+    public ContactModel buscar(int index){
         return contatos.get(index);
     }
 
-    public void adicionar(Contact c){
+    public ContactModel adicionar(ContactModel c){
         contatos.add(c);
+        return c;
     }
 
-    public void remover(int index, Contact c){
+    public void remover(int index){
         contatos.remove(index);
     }
 
-    public void atualizar(int index, Contact c){
-        contatos.put
+    public ContactModel atualizar(int index, ContactModel c){
+        contatos.set(index, c);
+        return c;
     }
 }
 
