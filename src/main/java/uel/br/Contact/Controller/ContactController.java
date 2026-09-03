@@ -37,7 +37,9 @@ public class ContactController {
     }
 
     @PutMapping("/{index}")
-    public void atualizar(@PathVariable int index, @RequestBody ContactModel contactModel)
+    public void atualizar(@PathVariable int index, @RequestBody ContactModel contactModel) {
+        service.atualizar(index, contactModel);
+    }
 }
 
 //GET /contatos: lista contatos.
