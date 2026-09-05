@@ -4,7 +4,7 @@ import uel.br.Contact.Model.ContactModel;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.IllegalFormatException;
 
 @Service
 public class ContactService {
@@ -42,3 +42,10 @@ public class ContactService {
 //• void adicionar(Contact c)
 //• void remover(int index)
 //• void atualizar(int index, Contact c)
+
+//Adicionando Códigos de status IllegalArgumentException
+//Códigos de status a serem incorporados:
+//• 404 NOT FOUND: quando o contato não existir.
+//• 400 BAD REQUEST: quando os dados enviados forem inválidos, isto é, nome, telefone ou e-mail nulos.
+//• 201 CREATED: ao adicionar um novo contato.
+//• 204 NO CONTENT: ao remover um contato.
