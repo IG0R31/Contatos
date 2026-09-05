@@ -1,9 +1,9 @@
 package uel.br.Contact.Service;
 
-import org.apache.coyote.Response;
-import org.springframework.web.server.ResponseStatusException;
 import uel.br.Contact.Model.ContactModel;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,15 +39,17 @@ public class ContactService {
     }
 
 
-    //400
+    //400 BAD REQUEST: dados inválidos (campos nulos)
     private void validarDados(ContactModel c){
-        if(c.getNome()==null) throw new ResponseStatusException("O campo 'nome' não pode estar vazio.");
-        if(c.getTelefone()==null) throw new ResponseStatusException("O campo 'telefone' não pode estar vazio.");
-        if(c.getEmail()==null) throw  new ResponseStatusException("O campo 'email' não pode ficar vazio.");
-        if(c.getDataNascimento()==null) throw new ResponseStatusException("O campo 'data de nascimento' não pode ficar vazio.");
+        if(c.getNome()==null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'nome' não pode estar vazio.");
+        if(c.getTelefone()==null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'telefone' não pode estar vazio.");
+        if(c.getEmail()==null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'email' não pode ficar vazio.");
+        if(c.getDataNascimento()==null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'data de nascimento' não pode ficar vazio.");
     }
+
+    //404 NOT FOUND: contato não existe
     private void validarIndice(int index){
-        if(index < 0 || index >= contatos.size()) throw new IndexOutOfBoundsException("Contato não encontrado");
+        if(index < 0 || index >= contatos.size()) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Contato não encontrado");
     }
 }
 

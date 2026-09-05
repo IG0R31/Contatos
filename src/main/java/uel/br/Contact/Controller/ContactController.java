@@ -4,8 +4,7 @@ import uel.br.Contact.Model.ContactModel;
 import uel.br.Contact.Service.ContactService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-import
+
 import java.util.List;
 @RestController
 @RequestMapping("/contatos")
@@ -35,7 +34,6 @@ public class ContactController {
     }
 
     @DeleteMapping("/{index}")
-    @ResponseStatus(HttpStatus.GONE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void remover(@PathVariable int index) {
         service.remover(index);
