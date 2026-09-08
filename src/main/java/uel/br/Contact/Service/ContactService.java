@@ -41,10 +41,9 @@ public class ContactService {
 
     //400 BAD REQUEST: dados inválidos (campos nulos)
     private void validarDados(ContactModel c){
-        if(c.getNome()==null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'nome' não pode estar vazio.");
-        if(c.getTelefone()==null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'telefone' não pode estar vazio.");
-        if(c.getEmail()==null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'email' não pode ficar vazio.");
-        if(c.getDataNascimento()==null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'data de nascimento' não pode ficar vazio.");
+        if(c.getNome()=="") throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'nome' não pode estar vazio.");
+        if(c.getTelefone()=="") throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'telefone' não pode estar vazio.");
+        if(c.getEmail()=="") throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O campo 'email' não pode ficar vazio.");
     }
 
     //404 NOT FOUND: contato não existe
