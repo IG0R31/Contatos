@@ -21,10 +21,10 @@ public class ContactController {
         return service.listar();
     }
 
-    @GetMapping("/{index}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ContactModel buscar(@PathVariable int index){
-        return service.buscar(index);
+    public ContactModel buscar(@PathVariable int id){
+        return service.buscar(id);
     }
 
     @PostMapping
@@ -33,16 +33,16 @@ public class ContactController {
         return service.adicionar(contato);
     }
 
-    @DeleteMapping("/{index}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void remover(@PathVariable int index) {
-        service.remover(index);
+    public void remover(@PathVariable int id) {
+        service.remover(id);
     }
 
-    @PutMapping("/{index}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void atualizar(@PathVariable int index, @RequestBody ContactModel contactModel) {
-        service.atualizar(index, contactModel);
+    public void atualizar(@PathVariable int id, @RequestBody ContactModel contactModel) {
+        service.atualizar(id, contactModel);
     }
 }
 
