@@ -2,11 +2,15 @@ package uel.br.Contact.Model;
 import java.time.LocalDate;
 
 public class ContactModel {
+    private int id;
     private String nome;
     private String email;
     private String telefone;
     private String endereco;
     private LocalDate dataNascimento;
+
+    public int getId(){ return id; }
+    public void setId(){ this.id = id; }
 
     public String getNome() {
         return nome;
